@@ -9,7 +9,7 @@ function SearchResult(props) {
   console.log("description: ", description);
   return (
     <Card>
-      <div>
+      <div className={key}>
         <Button key={key}>{description}</Button>
       </div>
     </Card>
