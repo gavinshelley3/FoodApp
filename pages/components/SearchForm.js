@@ -106,7 +106,7 @@ const SearchForm = () => {
                 <IconButton>
                   <img
                     rel="stylesheet"
-                    href="https://github.com/gavinshelley3/FoodApp/blob/main/public/search.png"
+                    href="https://github.com/gavinshelley3/FoodApp/blob/main/public/magnify.png?raw=true"
                   />
                 </IconButton>
               </InputAdornment>
