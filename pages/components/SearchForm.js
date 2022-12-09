@@ -38,13 +38,15 @@ const SearchForm = () => {
 
         if (json.foods.length === 0) {
           for (let i = 0; i < 5; i++) {
-            let fdcId = crypto.randomBytes(16).toString("hex");
-            let result = { description: " ... ", key: fdcId };
+            let key = crypto.randomBytes(16).toString("hex");
+            let result = { description: " ... ", key: key };
             //
             newSearchResults.push(result);
           }
         } else {
           for (let i = 0; i < 5; i++) {
+            let key = crypto.randomBytes(16).toString("hex");
+            json.foods[i].key = key;
             newSearchResults.push(json.foods[i]);
           }
         }
@@ -75,7 +77,7 @@ const SearchForm = () => {
           <SearchResult
             result={result}
             description={result.description}
-            key={result.fdcId}
+            key={result.key}
           />
         ))}
       </FormControl>
