@@ -75,9 +75,9 @@ const SearchForm = () => {
         </FormHelperText>
         {searchResults.map((result) => (
           <SearchResult
+            key={result.key}
             result={result}
             description={result.description}
-            key={result.key}
           />
         ))}
       </FormControl>
