@@ -7,7 +7,18 @@ function SearchResult(props) {
 
   console.log("description: ", description);
   return (
-    <Card>
+    <Card
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+        height: "100%",
+        padding: "10px",
+        margin: "10px",
+      }}
+    >
       <div>
         <Button>{description}</Button>
       </div>

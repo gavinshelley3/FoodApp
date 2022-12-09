@@ -63,14 +63,40 @@ const SearchForm = () => {
 
   return (
     <div>
-      <FormControl margin="normal" autoComplete="off">
+      <FormControl
+        margin="normal"
+        autoComplete="off"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height: "100%",
+          padding: "10px",
+          margin: "10px",
+        }}
+      >
         <TextField
           id="my-input"
           label="Search"
           variant="standard"
           onChange={handleChange}
+          sx={{ width: "40%", height: "100%", padding: "10px", margin: "10px" }}
         />
-        <FormHelperText id="my-helper-text">
+        <FormHelperText
+          id="my-helper-text"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            height: "100%",
+            padding: "10px",
+            margin: "10px",
+          }}
+        >
           Search for a product by name or ID.
         </FormHelperText>
         {searchResults.map((result) => (
