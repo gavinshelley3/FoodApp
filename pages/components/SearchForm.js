@@ -103,12 +103,7 @@ const SearchForm = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <IconButton>
-                  <img
-                    rel="stylesheet"
-                    href="https://github.com/gavinshelley3/FoodApp/blob/main/public/magnify.png?raw=true"
-                  />
-                </IconButton>
+                <IconButton aria-label="search"></IconButton>
               </InputAdornment>
             ),
           }}
