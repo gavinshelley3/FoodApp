@@ -10,7 +10,7 @@ function SearchResult(props) {
   return (
     <Card>
       <div>
-        <Button>{description}</Button>
+        <Button key={key}>{description}</Button>
       </div>
     </Card>
   );
