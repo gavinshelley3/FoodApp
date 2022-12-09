@@ -4,7 +4,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 
 const AccountForm = () => (
   <div>
-    <h1>Any place in your app!</h1>
     <Formik
       initialValues={{ email: "", password: "" }}
       validate={(values) => {
