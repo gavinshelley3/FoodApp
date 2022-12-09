@@ -62,7 +62,7 @@ const SearchForm = () => {
   }, []);
 
   return (
-    <div key={key}>
+    <div>
       <FormControl margin="normal" autoComplete="off">
         <TextField
           id="my-input"
@@ -74,11 +74,13 @@ const SearchForm = () => {
           Search for a product by name or ID.
         </FormHelperText>
         {searchResults.map((result) => (
-          <SearchResult
-            key={result.key}
-            result={result}
-            description={result.description}
-          />
+          <div key={result.key}>
+            <SearchResult
+              key={result.key}
+              result={result}
+              description={result.description}
+            />
+          </div>
         ))}
       </FormControl>
     </div>
