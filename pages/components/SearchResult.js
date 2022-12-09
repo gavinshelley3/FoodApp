@@ -8,7 +8,7 @@ function SearchResult(props) {
 
   console.log("description: ", description);
   return (
-    <Card>
+    <Card key={key}>
       <div className={key} key={key}>
         <Button key={key}>{description}</Button>
       </div>
