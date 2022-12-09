@@ -6,7 +6,9 @@ import {
   FormControl,
   FormHelperText,
   FormLabel,
+  IconButton,
   Input,
+  InputAdornment,
   InputLabel,
   TextField,
 } from "@mui/material";
@@ -74,16 +76,8 @@ const SearchForm = () => {
           width: "100%",
           height: "100%",
           padding: "10px",
-          margin: "10px",
         }}
       >
-        <TextField
-          id="my-input"
-          label="Search"
-          variant="standard"
-          onChange={handleChange}
-          sx={{ width: "40%", height: "100%", padding: "10px", margin: "10px" }}
-        />
         <FormHelperText
           id="my-helper-text"
           sx={{
@@ -99,8 +93,33 @@ const SearchForm = () => {
         >
           Search for a product by name or ID.
         </FormHelperText>
+        <TextField
+          id="my-input"
+          label="Search"
+          variant="outlined"
+          autoComplete="off"
+          onChange={handleChange}
+          sx={{ width: "50%", height: "100%", marginBottom: "3px" }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <IconButton>
+                  <img
+                    rel="stylesheet"
+                    href="https://github.com/gavinshelley3/FoodApp/blob/main/public/search.png"
+                  />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+        />
         {searchResults.map((result) => (
-          <div key={result.key}>
+          <div
+            key={result.key}
+            style={{
+              width: "50%",
+            }}
+          >
             <SearchResult
               key={result.key}
               result={result}
