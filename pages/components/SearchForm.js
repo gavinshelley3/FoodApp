@@ -62,7 +62,7 @@ const SearchForm = () => {
   }, []);
 
   return (
-    <div>
+    <div key={key}>
       <FormControl margin="normal" autoComplete="off">
         <TextField
           id="my-input"
