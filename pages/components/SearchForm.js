@@ -14,33 +14,44 @@ import { useState, useEffect } from "react";
 import SearchResult from "./SearchResult";
 
 const SearchForm = () => {
-  const searchResults = [];
-  const [name, setName] = useState(" ");
+  const [searchResults, setSearchResults] = useState([]);
+  const [name, setName] = useState("");
 
-  const handleChange = async (event) => {
+  const handleChange = (event) => {
     setName(event.target.value);
-    await searchByName();
+    console.log("name: ", event.target.value);
+    setSearchResults([]);
+    searchByName(event.target.value);
   };
 
-  const searchByName = async () => {
+  const searchByName = async (name) => {
+    setSearchResults([]);
     console.log("searchByName");
     console.log("name: ", name);
     await fetch("/api/products/name/" + name)
       .then((response) => response.json())
       .then((json) => {
         console.log("json: ", json);
+
+        let newSearchResults = [];
+
         if (json.foods.length === 0) {
           for (let i = 0; i < 5; i++) {
-            let result = {};
-            searchResults.push(" ... ");
+            let result = { description: " ... " };
+            //
+            newSearchResults.push(result);
           }
         } else {
           for (let i = 0; i < 5; i++) {
-            searchResults.push(json.foods[i]);
+            newSearchResults.push(json.foods[i]);
           }
         }
+        console.log("searchResults: ", newSearchResults);
+        setSearchResults(newSearchResults);
       });
   };
+
+  const syncResults = async (name) => {};
 
   useEffect(() => {
     // searchByName();
@@ -55,15 +66,12 @@ const SearchForm = () => {
           variant="standard"
           onChange={handleChange}
         />
-        {searchResults.map((result) => (
-          <SearchResult />
-        ))}
-        <Button variant="text" onClick={searchByName}>
-          Search
-        </Button>
         <FormHelperText id="my-helper-text">
           Search for a product by name or ID.
         </FormHelperText>
+        {searchResults.map((result) => (
+          <SearchResult result={result} description={result.description} />
+        ))}
       </FormControl>
     </div>
   );

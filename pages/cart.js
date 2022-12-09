@@ -27,8 +27,6 @@ export default function Cart() {
       <h2>
         <Link href="/">Back to home</Link>
         <SearchForm></SearchForm>
-        <button onClick={searchByID}>CLICK</button>
-        <button onClick={searchByName}>CLICK</button>
       </h2>
     </>
   );
