@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import SearchResult from "./SearchResult";
+import crypto from "crypto";
 
 const SearchForm = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -37,7 +38,8 @@ const SearchForm = () => {
 
         if (json.foods.length === 0) {
           for (let i = 0; i < 5; i++) {
-            let result = { description: " ... " };
+            let fdcId = crypto.randomBytes(16).toString("hex");
+            let result = { description: " ... ", key: fdcId };
             //
             newSearchResults.push(result);
           }
@@ -70,7 +72,11 @@ const SearchForm = () => {
           Search for a product by name or ID.
         </FormHelperText>
         {searchResults.map((result) => (
-          <SearchResult result={result} description={result.description} />
+          <SearchResult
+            result={result}
+            description={result.description}
+            key={result.fdcId}
+          />
         ))}
       </FormControl>
     </div>
