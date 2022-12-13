@@ -1,5 +1,7 @@
+import { Button } from "@mui/material";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import styles from "../styles/Home.module.css";
 import SearchForm from "./components/SearchForm";
 
 export default function Cart() {
@@ -23,11 +25,22 @@ export default function Cart() {
 
   return (
     <>
-      <h1>Cart</h1>
+      <h1>Search for foods found in the USDA database</h1>
       <h2>
-        <Link href="/">Back to home</Link>
         <SearchForm></SearchForm>
+        <Button>
+          <Link href="/">Back to home</Link>
+        </Button>
       </h2>
+      <footer className={styles.footer}>
+        <a
+          href="https://github.com/gavinshelley3/FoodApp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Github Repo
+        </a>
+      </footer>
     </>
   );
 }

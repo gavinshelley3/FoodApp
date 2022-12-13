@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import AccountForm from "./components/AccountForm";
+import { Button } from "@mui/material";
 
 export default function Home() {
   return (
@@ -15,10 +16,18 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className="title">
-          <Link href="/cart">Cart</Link>
+          Welcome to the Food Expiration App
+          <br />
+          <br />
         </h1>
+        <h2>Sign up or log in to get started</h2>
 
         <AccountForm></AccountForm>
+        <br />
+        <br />
+        <Button>
+          <Link href="/cart">Search for foods</Link>
+        </Button>
       </main>
 
       <footer className={styles.footer}>
